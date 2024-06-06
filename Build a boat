@@ -66,10 +66,24 @@ end
 
 
 AutofarmSection:NewButton("Get a gold block ", " Makes you get a gold block ", function()
+
+local player = game:GetService("Players").LocalPlayer
+
+        -- Remove BodyVelocity to remove float
+        if player.Character.HumanoidRootPart:FindFirstChild("WRDBodyVelocity") then
+            player.Character.HumanoidRootPart.WRDBodyVelocity:Destroy()
+        -- Insert BodyVelocity to add float
+        else
+            local bodyVelocity = Instance.new("BodyVelocity")
+            -- So we know what specific instance to remove when toggle off
+            bodyVelocity.Name = "WRDBodyVelocity"
+            bodyVelocity.Parent = player.Character.HumanoidRootPart
+        end
+
 getgenv().game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-27.354198455810547, 15.035831451416016, 7537.03515625)
-wait(1)
+wait(2)
 getgenv().game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-53.869075775146484, 18.07593536376953, 8306.279296875)
-wait(1)
+wait(2)
 getgenv().game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-57.59322738647461, -356.0037536621094, 9495.6162109375)
 end)
 
