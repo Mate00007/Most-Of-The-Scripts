@@ -91,6 +91,27 @@ AutofarmSection:NewButton("Anti AFK", " Disables roblox kicking you for AFK ", f
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Mate00007/Most-Of-The-Scripts/main/Anti%20afk%20Rice", true))()
 end)
 
+-- Local player tab and section
+local playerTab = Window:NewTab("Player")
+local playerSection = playerTab:NewSection("Player")
+
+-- Walkspeed slider
+playerSection:NewSlider("Walkspeed", "SPEED!!", 1000, 16, function(s)
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
+end)
+
+-- Jumppower slider
+playerSection:NewSlider("Jump Power", "JUMP HIGH!!", 1000, 50, function(s)
+    game.Players.LocalPlayer.Character.Humanoid.JumpPower = s
+end)
+
+-- Reset WS/JP button
+playerSection:NewButton("Reset WS/JP", "Resets to all defaults", function()
+    game.Players.LocalPlayer.Character.Humanoid.JumpPower = 50
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16
+end)
+
+
 local Teleports = Window:NewTab("Teleports")
 local TeleportsSection = Teleports:NewSection("Teleports")
 
